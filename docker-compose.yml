@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile_honeypot
     networks:
       my_network:
-        ipv4_address: 10.0.0.100
+        ipv4_address: 192.168.56.100
     cap_add:
       - NET_ADMIN
     privileged: true
@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile_nmap_scanner
     networks:
       my_network:
-        ipv4_address: 10.0.0.200
+        ipv4_address: 192.168.56.200
 
 networks:
   my_network:
@@ -29,4 +29,4 @@ networks:
     ipam:
       driver: default
       config:
-       - subnet: 10.0.0.0/24
+       - subnet: 192.168.56.0/24
