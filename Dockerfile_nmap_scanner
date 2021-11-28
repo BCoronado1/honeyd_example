@@ -1,0 +1,4 @@
+FROM ubuntu:20.04
+RUN apt-get update && apt-get install -y net-tools iproute2 nmap
+COPY scripts/start_nmap_scanner.sh start_nmap_scanner.sh
+CMD bash start_nmap_scanner.sh

@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  honeypot:
+    container_name: honeypot
+    build:
+      context: .
+      dockerfile: Dockerfile_honeypot
+    networks:
+      my_network:
+        ipv4_address: 10.0.0.100
+    cap_add:
+      - NET_ADMIN
+    privileged: true
+
+  nmap_scanner:
+    container_name: nmap_scanner
+    build:
+      context: .
+      dockerfile: Dockerfile_nmap_scanner
+    networks:
+      my_network:
+        ipv4_address: 10.0.0.200
+
+networks:
+  my_network:
+    name: my_network
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: 10.0.0.0/24
