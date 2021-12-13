@@ -10,4 +10,5 @@ RUN make install
 WORKDIR /
 COPY scripts/start_honeypot.sh start_honeypot.sh
 COPY scripts/honeypot.conf honeypot.conf
+RUN apt-get install -y ethtool
 CMD bash start_honeypot.sh
